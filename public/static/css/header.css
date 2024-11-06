@@ -1,0 +1,21 @@
+.header-container{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--foreground);
+}
+
+.nav-link{
+    text-decoration: none;
+    color: var(--foreground);
+
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1em;
+
+    margin: 0px 15px 0px 15px;
+}
+
+.nav-title{
+    font-size: 1.8em;
+}

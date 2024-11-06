@@ -1,0 +1,68 @@
+
+.search-container{
+
+}
+
+.search-bar{
+    width: 730px;
+    height: 45px;
+    border-radius: 15px;
+    margin: 20px;
+    font-size: 1.6em;
+    text-indent: 15px;
+}
+
+.most-bought-category{
+    text-decoration: none;
+    color: var(--foreground);
+    font-family: 'Inter';
+}
+
+.main-content{
+    width: 100%;
+    padding-top: 50px;
+}
+
+
+.category-container{
+    width: 20%;
+}
+
+.items-view{
+    width: 60%;
+}
+
+.filter-container{
+    width: 20%;
+    
+}
+
+.filter-main{
+    
+    margin-left: 50px;
+}
+
+.item-container{
+    width: 180px;
+    height: 260px;
+    margin: 5px;
+    margin-bottom: 20px;
+}
+
+.item-image{
+    width: 100%;
+    height: auto;
+
+    background-color: red;
+
+    border-radius: 15px;
+}
+
+.item-info{
+    font-family: 'Inter';
+}
+
+.item-provider{
+    margin: 15px 0px 5px 0px;
+
+}
