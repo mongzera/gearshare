@@ -71,7 +71,11 @@
 
                         if(isset($brand_names)){
                             foreach($brand_names as $brand){
-                                echo "<input type='checkbox' name='selected_brands' class='brands' id='brands' value='$brand'><label> $brand </label><br>";
+                                echo "<input type='checkbox' name='selected_brands[]' class='brands' id='brands' value='$brand'><label> $brand </label><br>";
+                            }
+                        }else{
+                            if(isset($_GET['selected_brands'])){
+                                
                             }
                         }
 

@@ -7,6 +7,8 @@ function swap(array &$arr, int $a, int $b){
         $arr[$a] = $arr[$b];
         $arr[$b] = $temp;
     }
+
+    
 }
 
 function linear_search( string $searchString, array $items, array $attrib_names){
@@ -70,12 +72,22 @@ function linear_search_strict( string $searchString, array $items, $categories =
 function filter($searchString, $categories = [], $brands = [], $priceOrder = 'price_highest'){
     $completeSearchMatch = $searchString;
 
+    //var_dump($brands);
+
     //append the filters
+    $filteredItems = [];
 
     [$matched_items, $item_names] = linear_search($completeSearchMatch, retrieve_items(), ['name', 'category', 'brand']);
 
-    bubble_sort($matched_items, 'price', ($priceOrder === 'price_lowest') ? 'ascending' : 'descending');
+    //var_dump($matched_items);
 
+    foreach($matched_items as $items){
+        if(exists($items['brand'], $brands)) array_push($filteredItems, $items);
+    }
+
+    bubble_sort($filteredItems, 'price', ($priceOrder === 'price_lowest') ? 'ascending' : 'descending');
+
+    if(count($brands) > 0) return $filteredItems;
     return $matched_items;
 }
 
@@ -138,7 +150,6 @@ function exists($target, $list){
 
 function enumerate($matchedItems, $basis){
     $accumulatedList = [];
-
 
     foreach($matchedItems as $item){
         if(!exists($item[$basis], $accumulatedList)) array_push($accumulatedList, $item[$basis]);

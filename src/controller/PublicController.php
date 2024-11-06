@@ -22,8 +22,8 @@ class PublicController{
 
         if(isAllSet($_GET, ['search_bar'])){
             $search_keyword = cleanValues($_GET, ['search_bar'])['search_bar'];
-            //$matchedItems = filter($search_keyword, (isset($_GET['categories']) ? $_GET['categories'] : []), (isset($_GET['brands']) ? $_GET['brands'] : []), (isset($_GET['price_order']) ? $_GET['price_order'] : []));
-            $matchedItems = linear_search_strict($search_keyword, $matchedItems, (isset($_GET['selected_brands']) ? $_GET['selected_brands'] : []), (isset($_GET['brands']) ? $_GET['brands'] : []));
+            $matchedItems = filter($search_keyword, (isset($_GET['categories']) ? $_GET['categories'] : []), (isset($_GET['selected_brands']) ? $_GET['selected_brands'] : []), (isset($_GET['price_order']) ? $_GET['price_order'] : []));
+            //$matchedItems = linear_search_strict($search_keyword, $matchedItems, (isset($_GET['selected_brands']) ? $_GET['selected_brands'] : []), (isset($_GET['brands']) ? $_GET['brands'] : []));
             $brand_names = enumerate($matchedItems, 'brand');
         }
 
