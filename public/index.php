@@ -17,5 +17,6 @@ if($match){
     $controller = new $controller();
 
     call_user_func_array([$controller, $controllerMethod], $match['params']);
-
+}else{
+    echo "Error 404. Cannot find the page you're looking for...";
 }

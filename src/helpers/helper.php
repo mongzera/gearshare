@@ -38,3 +38,7 @@ function login_user($values){
 
     return true;
 }
+
+function redirect($uri){
+    header("Location: " . $uri);
+}

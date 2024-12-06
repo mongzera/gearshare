@@ -1,7 +1,8 @@
 <div class="content-container justify-center">
     <div class="search-container  flex-col align-center">
-        <form action="" method="GET">
+        <form action="" method="GET" class="flex-row align-center justify-left">
             <input type="text" class="search-bar" value="<?php if(isset($_GET['search_bar'])) echo $_GET['search_bar'] ?>" name="search_bar" id="search_bar" placeholder="Search Item..."/>
+            <input type="submit" class='search-bar-button' value="Search"/>
         </form>
 
         <div class="most-bought-category-container justfy-center">
@@ -51,6 +52,22 @@
 
             ?>
         </div>
+        <!-- Script is for clearing filters-->
+        <script>
+            function clearFilter(){
+                let priceOrder = document.getElementsByName("price_order");
+
+                for(let i = 0; i < priceOrder.length; i++){
+                    priceOrder[i].checked = false;
+                }
+
+                let brandNameCheckbox = document.getElementsByName("selected_brands[]");
+
+                for(let i = 0; i < brandNameCheckbox.length; i++){
+                    brandNameCheckbox[i].checked = false;
+                }
+            }
+        </script>
 
         <div class="filter-container flex-col">
             <div class="filter-main">
@@ -64,30 +81,25 @@
                     <input type="radio" name="price_order" value='price_highest' id="price_highest"><label class='inter' for='price_highest'>  Price Highest</label><br>
                     <input type="radio" name="price_order" value='price_lowest' id="price_lowest"><label class='inter' for='price_lowest'>  Price Lowest</label>
                     <br><br>
-                    <h4>Brand Name</h4>
-                    <!--LIST OUT ALL BRAND NAMES OF THE SEARCHED ITEMS-->
+                    
 
                     <?php
 
                         if(isset($brand_names)){
+                            //LIST OUT ALL BRAND NAMES OF THE SEARCHED ITEMS
+                            echo "<h4>Brand Name</h4>";
+                            
                             foreach($brand_names as $brand){
-                                echo "<input type='checkbox' name='selected_brands[]' class='brands' id='brands' value='$brand'><label> $brand </label><br>";
-                            }
-                        }else{
-                            if(isset($_GET['selected_brands'])){
-                                
+                                echo "<input type='checkbox' name='selected_brands[]' class='brands' id='brands' value='$brand' checked><label> $brand </label><br>";
                             }
                         }
 
                     ?>
 
                     <br>
-                    <h4>Category</h4>
-                    <!--LIST OUT ALL CATEGORIES OF THE SEARCHED ITEMS-->
-                    <input type="radio" name="price_order" value='price_highest' id="price_highest"><label class='inter' for='price_highest'>  Price Highest</label><br>
-                    <input type="radio" name="price_order" value='price_lowest' id="price_lowest"><label class='inter' for='price_lowest'>  Price Lowest</label>
-                    
-                    <input type="submit" value="Apply Filters"/>
+                    <br>
+                    <input type="submit" class="btn1" value="Apply Filters"/>
+                    <input type="button" class="btn1-hollow" value="Clear Filters" onclick="clearFilter()"/>
                 </form>
             </div>
         </div>

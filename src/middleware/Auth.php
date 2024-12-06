@@ -8,6 +8,7 @@ class Auth{
     }
 
     public static function redirectIfLoggedIn(){
-        if(self::verify()) header("Location: /");
+        include_once '../src/helpers/helper.php';
+        if(self::verify()) redirect("/");
     }
 }

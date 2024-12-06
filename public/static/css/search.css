@@ -6,10 +6,19 @@
 .search-bar{
     width: 730px;
     height: 45px;
-    border-radius: 15px;
     margin: 20px;
     font-size: 1.6em;
     text-indent: 15px;
+}
+
+.search-bar-button{
+    width: 100px;
+    height: 45px;
+    background-color: var(--foreground);
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    margin-left: -122px;
 }
 
 .most-bought-category{
@@ -38,7 +47,6 @@
 }
 
 .filter-main{
-    
     margin-left: 50px;
 }
 
@@ -52,10 +60,8 @@
 .item-image{
     width: 100%;
     height: auto;
-
     background-color: red;
-
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .item-info{

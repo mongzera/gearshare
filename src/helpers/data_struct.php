@@ -85,9 +85,12 @@ function filter($searchString, $categories = [], $brands = [], $priceOrder = 'pr
         if(exists($items['brand'], $brands)) array_push($filteredItems, $items);
     }
 
-    bubble_sort($filteredItems, 'price', ($priceOrder === 'price_lowest') ? 'ascending' : 'descending');
+    if(count($brands) > 0){
+        bubble_sort($filteredItems, 'price', ($priceOrder === 'price_lowest') ? 'ascending' : 'descending');
+        return $filteredItems;
+    } 
 
-    if(count($brands) > 0) return $filteredItems;
+    
     return $matched_items;
 }
 

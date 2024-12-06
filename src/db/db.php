@@ -43,6 +43,18 @@ function retrieve_items(  ){
     return null;
 }
 
+function retrieve_item_by_id($itemId){
+    $result = run_query("SELECT * FROM tb_items WHERE id = $itemId");
+
+    if($result) {
+        $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        return $data;
+    }
+
+    return null;
+}
+
 function create_user_account($username, $email, $hashed_password){
     $query = "
         INSERT INTO tb_user (username, email, password) VALUES (?, ?, ?);

@@ -9,7 +9,7 @@ class AuthController{
         Auth::redirectIfLoggedIn();
 
         $content = [
-            'css' => ['/static/css/create-account.css'],
+            'css' => ['/static/css/auth.css'],
             'header' => '../src/templates/header.php',
             'body' => '../src/content/create_account.php'
         ];
@@ -56,7 +56,7 @@ class AuthController{
         Auth::redirectIfLoggedIn();
 
         $content = [
-            'css' => ['/static/css/login.css'],
+            'css' => ['/static/css/auth.css'],
             'header' => '../src/templates/header.php',
             'body' => '../src/content/login.php'
         ];

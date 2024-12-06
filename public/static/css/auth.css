@@ -13,12 +13,24 @@
     width: 500px;
     margin: 5px;
     text-indent: 5px;
-    border-radius: 5px;
+    border-radius: 0;
     font-size: 0.8em;
     outline: none;
+    border: 2px solid var(--light-color);
 }
 
 .input-submit{
     max-width: 150px !important;
+    border: none;
 }
+        
+
+
+
+
+
+
+
+
+
 
