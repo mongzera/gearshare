@@ -5,7 +5,7 @@ namespace Src\Controller;
 use Src\Middleware\Auth;
 
 class AuthController{
-    public function create_account(){
+    public function create_account($create_account_error = null){
         Auth::redirectIfLoggedIn();
 
         $content = [
@@ -28,8 +28,25 @@ class AuthController{
             'confirm_password'
         ];
 
+        $create_account_error = null;
+
+        $username_pattern = "/^[a-zA-Z0-9_-]{3,15}$/";
+        $email_pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+        $password_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+={}\[\]:;<>,.?~\\/-]{8,}$/";
+
         if(isAllSet($_POST, $form_names)){
             $values = cleanValues($_POST, $form_names);
+
+            //form validation
+            if($values['password'] != $values['confirm_password']) $create_account_error = "Password does not match!";
+            if(!preg_match($password_pattern, $values['password'])) $create_account_error = "Incorrect password value!";
+            if(!preg_match($email_pattern, $values['email'])) $create_account_error = "Incorrect email value!";
+            if(!preg_match($username_pattern, $values['username'])) $create_account_error = "Incorrect username value!";
+            
+
+            if($create_account_error != null){
+                return self::create_account($create_account_error);
+            }
 
             //check if passwords match
             if($values['password'] === $values['confirm_password']){

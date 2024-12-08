@@ -9,4 +9,11 @@
             <input class='input-field input-submit btn1' type="submit" value="Create Account">
 
         </form>
+
+        <?php
+
+            if($create_account_error){
+                echo '<h3 style="color: red;">' . $create_account_error . '</h3>';
+            }
+        ?>
 </div>
